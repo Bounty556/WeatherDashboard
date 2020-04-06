@@ -29,8 +29,6 @@ function search(query) {
         url: queryURL + '&units=imperial&appid=' + apiKey,
         method: 'GET'
     }).then(function(response) {
-        console.log(response);
-        
         let name = response.name;
 
         addSearchHistoryItem(name, response.id);
@@ -40,11 +38,11 @@ function search(query) {
             url: 'https://api.openweathermap.org/data/2.5/onecall?lon=' + response.coord.lon + '&lat=' + response.coord.lat + '&units=imperial&appid=' + apiKey,
             method: 'GET'
         }).then(function(response) {
-            console.log(response);
-
             displayWeather(response, name);
             displayForecast(response);
         });
+    }).catch(function() {
+        console.log('Not a valid city name or id');
     });
 }
 
@@ -89,5 +87,27 @@ function displayWeather(weatherData, name) {
 }
 
 function displayForecast(forecastData) {
+    let forecastDiv = $('#weather-forecast');
+    let day = moment();
 
+    forecastDiv.empty();
+
+    for (let i = 0; i < 5; i++) {
+        day.add(1, 'days');
+
+        let daysWeather = forecastData.daily[i];
+
+        let dayDiv = $('<div>').attr('class', 'weather-forecast-day');
+        let date = $('<h5>').text(day.format('M/D/YYYY'));
+        let weatherIcon = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + daysWeather.weather[0].icon + '.png');
+        let temp = $('<p>').html('Temp: ' + daysWeather.temp.day + ' &#8457;');
+        let humidity = $('<p>').text('Humidity: ' + daysWeather.humidity + '%');
+
+        dayDiv.append(date);
+        dayDiv.append(weatherIcon);
+        dayDiv.append(temp);
+        dayDiv.append(humidity);
+
+        forecastDiv.append(dayDiv);
+    }
 }
