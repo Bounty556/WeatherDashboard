@@ -1,0 +1,18 @@
+#navbar {
+    background-color: #222;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+    padding: 20px 0px;
+}
+
+#search-bar {
+    background-color: gray;
+}
+
+#weather-data {
+    background-color: darkgray;
+}
