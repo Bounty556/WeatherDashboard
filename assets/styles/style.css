@@ -1,3 +1,11 @@
+label {
+    font-weight: 500;
+}
+
+main {
+    margin-top: 15px;
+}
+
 #navbar {
     background-color: #222;
     color: white;
@@ -9,10 +17,8 @@
     padding: 20px 0px;
 }
 
-#search-bar {
-    background-color: gray;
-}
-
-#weather-data {
-    background-color: darkgray;
+#search-btn {
+    color: white;
+    border-color: white;
+    background-color: dodgerblue;
 }

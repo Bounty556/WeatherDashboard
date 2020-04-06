@@ -12,6 +12,9 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet" />
 
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/fba7c5a5bb.js" crossorigin="anonymous"></script>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="assets/styles/style.css" />
 </head>
@@ -23,7 +26,17 @@
     <main class="container">
         <div class="row">
             <aside class="col-4" id="search-bar">
-                test
+
+                <!-- Search Form -->
+                <label for="search-input">Search City:</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="City" aria-label="City" aria-describedby="search-btn" id="search-input" />
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+                <!-- Search History -->
             </aside>
 
             <section class="col-8" id="weather-data">
