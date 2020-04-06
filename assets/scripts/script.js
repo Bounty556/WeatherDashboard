@@ -2,6 +2,9 @@ var apiKey = 'dcbf84d1f01ba47709c6cfcfcb884b84';
 var searchHistory;
 
 $(document).ready(function() {
+    // Hide weather summary initially
+    $('#weather-summary').hide();
+
     // Make an empty array if searchHistory doesn't exist
     searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
 
@@ -14,6 +17,11 @@ $(document).ready(function() {
     $('#search-history').on('click', '.search-history-item', function() {
         search($(this).attr('data-id'));
     });
+
+    // Run the latest search if one is available
+    if (searchHistory.length > 0) {
+        search(searchHistory[0].id);
+    }
 });
 
 function search(query) {
@@ -40,9 +48,9 @@ function search(query) {
         }).then(function(response) {
             displayWeather(response, name);
             displayForecast(response);
+
+            $('#weather-summary').show();
         });
-    }).catch(function() {
-        console.log('Not a valid city name or id');
     });
 }
 
