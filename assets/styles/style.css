@@ -26,6 +26,13 @@ main {
     background-color: #EEE;
 }
 
+.weather-forecast-day {
+    background-color: dodgerblue;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+}
+
 #navbar {
     background-color: #222;
     color: white;
@@ -47,6 +54,13 @@ main {
     color: white;
     border-color: white;
     background-color: dodgerblue;
+}
+
+#weather-forecast {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
 }
 
 #weather-summary {
