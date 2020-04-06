@@ -30,14 +30,20 @@ function search(query) {
         method: 'GET'
     }).then(function(response) {
         console.log(response);
+        
+        let name = response.name;
 
-        addSearchHistoryItem(response.name, response.id);
+        addSearchHistoryItem(name, response.id);
 
+        // Need second call for 5-day forecast. We can't do everything with the "one call" endpoint because it doesn't take in a city name.
         $.ajax({
             url: 'https://api.openweathermap.org/data/2.5/onecall?lon=' + response.coord.lon + '&lat=' + response.coord.lat + '&units=imperial&appid=' + apiKey,
             method: 'GET'
         }).then(function(response) {
             console.log(response);
+
+            displayWeather(response, name);
+            displayForecast(response);
         });
     });
 }
@@ -69,4 +75,19 @@ function populateSearchHistory() {
 
         $('#search-history').append(p);
     });
+}
+
+function displayWeather(weatherData, name) {
+    let todaysWeather = weatherData.current;
+
+    $('#weather-summary-title').text(name + ' ' + moment().format('M/D/YYYY'));
+    $('#weather-summary-icon').attr('src', 'http://openweathermap.org/img/wn/' + todaysWeather.weather[0].icon + '@2x.png');
+    $('#temperature').text(todaysWeather.temp);
+    $('#humidity').text(todaysWeather.humidity);
+    $('#wind-speed').text(todaysWeather.wind_speed);
+    $('#uv-index').text(todaysWeather.uvi)
+}
+
+function displayForecast(forecastData) {
+
 }

@@ -44,43 +44,42 @@
             <!-- Weather Data -->
             <section class="col-9" id="weather-data">
                 <div id="weather-summary">
-                    <h1 id="weather-summary-title">Atlanta (4/5/2020) <span id="weather-summary-icon" style="color: grey"><i class="fas fa-cloud"></i></span></h1>
-                    <br />
-                    <p id="temperature">Temperature: 90.9 &#8457;</p>
-                    <p id="humidity">Humidity: 41%</p>
-                    <p id="wind-speed">Wind Speed: 4.7 MPH</p>
-                    <p id="uv-index">UV Index: <span class="index-num">9.7</span></p>
+                    <h1><span id="weather-summary-title">FIX</span><img id="weather-summary-icon" src="http://openweathermap.org/img/wn/10d@2x.png"/></h1>
+                    <p>Temperature: <span id="temperature">90.0</span> &#8457;</p>
+                    <p>Humidity: <span id="humidity">41</span>%</p>
+                    <p>Wind Speed: <span id="wind-speed">4.7</span> MPH</p>
+                    <p>UV Index: <span id="uv-index">9.7</span></p>
                 </div>
 
                 <!-- 5-day Forecast -->
                 <div id="weather-forecast">
                     <div class="weather-forecast-day">
                         <h5>4/5/2020</h5>
-                        <p style="color: grey"><i class="fas fa-cloud"></i></p>
+                        <img src="http://openweathermap.org/img/wn/10d.png"/>
                         <p>Temp: 90.9 &#8457;</p>
                         <p>Humidity: 43%</p>
                     </div>
                     <div class="weather-forecast-day">
                         <h5>4/5/2020</h5>
-                        <p style="color: grey"><i class="fas fa-cloud"></i></p>
+                        <img src="http://openweathermap.org/img/wn/10d.png"/>
                         <p>Temp: 90.9 &#8457;</p>
                         <p>Humidity: 43%</p>
                     </div>
                     <div class="weather-forecast-day">
                         <h5>4/5/2020</h5>
-                        <p style="color: grey"><i class="fas fa-cloud"></i></p>
+                        <img src="http://openweathermap.org/img/wn/10d.png"/>
                         <p>Temp: 90.9 &#8457;</p>
                         <p>Humidity: 43%</p>
                     </div>
                     <div class="weather-forecast-day">
                         <h5>4/5/2020</h5>
-                        <p style="color: grey"><i class="fas fa-cloud"></i></p>
+                        <img src="http://openweathermap.org/img/wn/10d.png"/>
                         <p>Temp: 90.9 &#8457;</p>
                         <p>Humidity: 43%</p>
                     </div>
                     <div class="weather-forecast-day">
                         <h5>4/5/2020</h5>
-                        <p style="color: grey"><i class="fas fa-cloud"></i></p>
+                        <img src="http://openweathermap.org/img/wn/10d.png"/>
                         <p>Temp: 90.9 &#8457;</p>
                         <p>Humidity: 43%</p>
                     </div>
@@ -96,6 +95,9 @@
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Moment -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <!-- Custom JS -->
     <script src="assets/scripts/script.js" type="text/javascript"></script>
