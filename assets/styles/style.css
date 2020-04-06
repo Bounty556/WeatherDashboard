@@ -52,7 +52,6 @@ main {
 #uv-index {
     padding-left: 3px;
     padding-right: 3px;
-    background-color: orangered;
     border-radius: 5px;
     color: white;
 }
@@ -65,6 +64,7 @@ main {
 }
 
 #weather-summary {
+    display: none;
     border: solid 1px #DDD;
     border-radius: 5px;
     margin: 10px;

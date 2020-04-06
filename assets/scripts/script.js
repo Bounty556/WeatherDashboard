@@ -2,8 +2,6 @@ var apiKey = 'dcbf84d1f01ba47709c6cfcfcb884b84';
 var searchHistory;
 
 $(document).ready(function() {
-    // Hide weather summary initially
-    $('#weather-summary').hide();
 
     // Make an empty array if searchHistory doesn't exist
     searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
@@ -91,7 +89,16 @@ function displayWeather(weatherData, name) {
     $('#temperature').text(todaysWeather.temp);
     $('#humidity').text(todaysWeather.humidity);
     $('#wind-speed').text(todaysWeather.wind_speed);
-    $('#uv-index').text(todaysWeather.uvi)
+    $('#uv-index').text(todaysWeather.uvi);
+
+    // Set UV indicator color
+    if (todaysWeather.uvi <= 4) {
+        $('#uv-index').attr('style', 'background-color: lightgreen');
+    } else if (todaysWeather.uvi <= 8) {
+        $('#uv-index').attr('style', 'background-color: #FDAD5C');
+    } else {
+        $('#uv-index').attr('style', 'background-color: orangered');
+    }
 }
 
 function displayForecast(forecastData) {
