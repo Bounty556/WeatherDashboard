@@ -25,11 +25,11 @@
 
     <main class="container">
         <div class="row">
-            <aside class="col-4" id="search-bar">
+            <aside class="col-4">
 
                 <!-- Search Form -->
                 <label for="search-input">Search City:</label>
-                <div class="input-group mb-3">
+                <div class="input-group" id="search-bar">
                     <input type="text" class="form-control" placeholder="City" aria-label="City" aria-describedby="search-btn" id="search-input" />
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button" id="search-btn"><i class="fas fa-search"></i></button>
@@ -37,6 +37,10 @@
                 </div>
 
                 <!-- Search History -->
+                <div id="search-history">
+                    <p class="search-history-item">Dallas</p>
+                    <p class="search-history-item">Salt Lake City</p>
+                </div>
             </aside>
 
             <section class="col-8" id="weather-data">

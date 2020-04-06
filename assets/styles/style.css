@@ -6,6 +6,18 @@ main {
     margin-top: 15px;
 }
 
+.search-history-item {
+    border-bottom: 1px solid #DDD;
+    padding-left: 14px;
+    padding-bottom: 14px;
+    padding-top: 14px;
+    margin: 0px;
+}
+
+.search-history-item:hover {
+    background-color: #EEE;
+}
+
 #navbar {
     background-color: #222;
     color: white;
@@ -15,6 +27,12 @@ main {
     text-align: center;
     width: 100%;
     padding: 20px 0px;
+}
+
+#search-bar {
+    border-bottom: 1px solid #DDD;
+    margin-bottom: 0px;
+    padding-bottom: 14px;
 }
 
 #search-btn {
