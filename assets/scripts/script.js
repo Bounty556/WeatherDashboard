@@ -59,6 +59,7 @@ function addSearchHistoryItem(name, id) {
     };
     searchHistory.unshift(historyItem);
 
+    // Only keep the latest 10 searches
     if (searchHistory.length > 10) {
         searchHistory.pop();
     }
@@ -71,6 +72,7 @@ function addSearchHistoryItem(name, id) {
 function populateSearchHistory() {
     $('#search-history').empty();
 
+    // Add search history item for each item in search history array
     searchHistory.forEach(element => {
         let p = $('<p>').attr('class', 'search-history-item');
         p.attr('data-id', element.id.toString());
@@ -84,6 +86,7 @@ function populateSearchHistory() {
 function displayWeather(weatherData, name) {
     let todaysWeather = weatherData.current;
 
+    // Set all weather info
     $('#weather-summary-title').text(name + ' ' + moment().format('M/D/YYYY'));
     $('#weather-summary-icon').attr('src', 'http://openweathermap.org/img/wn/' + todaysWeather.weather[0].icon + '@2x.png');
     $('#temperature').text(todaysWeather.temp);
@@ -108,16 +111,19 @@ function displayForecast(forecastData) {
     forecastDiv.empty();
 
     for (let i = 0; i < 5; i++) {
+        // Start the day after today, increment day per loop
         day.add(1, 'days');
 
         let daysWeather = forecastData.daily[i];
 
+        // Set all weather data for specific day
         let dayDiv = $('<div>').attr('class', 'weather-forecast-day');
         let date = $('<h5>').text(day.format('M/D/YYYY'));
         let weatherIcon = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + daysWeather.weather[0].icon + '.png');
         let temp = $('<p>').html('Temp: ' + daysWeather.temp.day + ' &#8457;');
         let humidity = $('<p>').text('Humidity: ' + daysWeather.humidity + '%');
 
+        // Add all our stuff to the page
         dayDiv.append(date);
         dayDiv.append(weatherIcon);
         dayDiv.append(temp);

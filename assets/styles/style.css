@@ -74,3 +74,14 @@ main {
 #weather-summary-icon {
     height: 64px;
 }
+
+@media screen and (max-width: 767.98px) {
+    #weather-forecast {
+        flex-direction: column;
+    }
+
+    .weather-forecast-day {
+        border-radius: 0px;
+        border: 1px solid rgb(24, 112, 201);
+    }
+}
