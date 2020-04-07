@@ -18,7 +18,7 @@ $(document).ready(function() {
 
     // Run the latest search if one is available
     if (searchHistory.length > 0) {
-        search(searchHistory[0].id);
+        search(searchHistory[0].id); // Remove the first one, because when we run the search it will be added back again
     }
 });
 
@@ -57,6 +57,21 @@ function addSearchHistoryItem(name, id) {
         name: name,
         id: id
     };
+
+    // See if a history item with the given name exists
+    let indexFound = -1;
+    searchHistory.find(function(item, index) {
+
+        if (item.name === historyItem.name) {
+            indexFound = index;
+        }
+    });
+
+    // Remove the previous item if already exists
+    if (indexFound != -1) {
+        searchHistory.splice(indexFound, 1);
+    }
+
     searchHistory.unshift(historyItem);
 
     // Only keep the latest 10 searches
