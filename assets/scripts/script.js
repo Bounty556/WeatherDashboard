@@ -102,8 +102,9 @@ function displayWeather(weatherData, name) {
     let todaysWeather = weatherData.current;
 
     // Set all weather info
-    $('#weather-summary-title').text(name + ' ' + moment().format('M/D/YYYY'));
+    $('#weather-summary-title').text(name);
     $('#weather-summary-icon').attr('src', 'http://openweathermap.org/img/wn/' + todaysWeather.weather[0].icon + '@2x.png');
+    $('#date').text(moment().format('dddd MMMM D, YYYY'));
     $('#temperature').text(todaysWeather.temp);
     $('#humidity').text(todaysWeather.humidity);
     $('#wind-speed').text(todaysWeather.wind_speed);
@@ -133,12 +134,14 @@ function displayForecast(forecastData) {
 
         // Set all weather data for specific day
         let dayDiv = $('<div>').attr('class', 'weather-forecast-day');
+        let weekday = $('<p>').text(day.format('dddd')).attr('style', 'margin-bottom: 0px');
         let date = $('<h5>').text(day.format('M/D/YYYY'));
         let weatherIcon = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + daysWeather.weather[0].icon + '.png');
         let temp = $('<p>').html('Temp: ' + daysWeather.temp.day + ' &#8457;');
         let humidity = $('<p>').text('Humidity: ' + daysWeather.humidity + '%');
 
         // Add all our stuff to the page
+        dayDiv.append(weekday);
         dayDiv.append(date);
         dayDiv.append(weatherIcon);
         dayDiv.append(temp);
