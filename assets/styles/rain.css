@@ -1,0 +1,66 @@
+body {
+    background-color: #6f859b;
+}
+
+.search-history-item {
+    color: #272f37;
+    border-bottom: 1px solid #596b7d;
+    background-color: #63778B;
+}
+
+.search-history-item:hover {
+    color: lightgrey;
+    background-color: #596b7d;
+}
+
+.weather-forecast-day {
+    background-color: #596b7d;
+    border-radius: 5px;
+    color: #272f37;
+    padding: 10px;
+}
+
+#date {
+    color: lightgrey;
+}
+
+#navbar {
+    background-color: #272f37;
+    color: #596b7d;
+}
+
+#search-bar {
+    border-bottom: 1px solid #596b7d;
+}
+
+#search-btn {
+    color: lightgrey;
+    border-color: #596b7d;
+    background-color: #596b7d;
+}
+
+#search-input {
+    color: #272f37;
+    background-color: #63778B;
+    border-color: #596b7d;
+}
+
+#search-input::placeholder {
+    color: #3b4753;
+}
+
+#weather-summary {
+    color: #272f37;
+    border: solid 1px #596b7d;
+}
+
+@media screen and (max-width: 767.98px) {
+    #weather-forecast {
+        flex-direction: column;
+    }
+
+    .weather-forecast-day {
+        border-radius: 0px;
+        border: 1px solid #4f5f6f;
+    }
+}
