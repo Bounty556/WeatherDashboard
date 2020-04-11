@@ -1,10 +1,16 @@
 var apiKey = 'dcbf84d1f01ba47709c6cfcfcb884b84';
 var searchHistory;
+var theme;
 
 $(document).ready(function() {
 
     // Make an empty array if searchHistory doesn't exist
     searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+
+    // Make theme light by default
+    theme = localStorage.getItem('theme') || 'light';
+
+    setTheme(theme);
 
     populateSearchHistory();
 
@@ -14,6 +20,13 @@ $(document).ready(function() {
 
     $('#search-history').on('click', '.search-history-item', function() {
         search($(this).attr('data-id'));
+    });
+
+    $('#light-theme').on('click', function() {
+        setTheme('light');
+    });
+    $('#dark-theme').on('click', function() {
+        setTheme('dark');
     });
 
     // Run the latest search if one is available
@@ -149,4 +162,16 @@ function displayForecast(forecastData) {
 
         forecastDiv.append(dayDiv);
     }
+}
+
+function setTheme(tempTheme) {
+    if (tempTheme == 'light') {
+        $('#stylesheet').attr('href', '');
+    } else if (tempTheme == 'dark') {
+        $('#stylesheet').attr('href', 'assets/styles/rain.css');
+    }
+
+    theme = tempTheme;
+
+    localStorage.setItem('theme', theme);
 }
